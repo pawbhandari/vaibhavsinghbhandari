@@ -178,10 +178,12 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
+    cursor: url('/premiere-cursor.svg') 16 16, auto;
   }
 
   body {
     @apply bg-background text-foreground;
+    cursor: url('/premiere-cursor.svg') 16 16, auto;
   }
 }
 
