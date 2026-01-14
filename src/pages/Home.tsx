@@ -30,7 +30,6 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              poster="https://www.pexels.com/download/video/5299882/"
               className="w-full h-full object-cover"
               onError={(e) => {
                 const target = e.currentTarget;
@@ -38,7 +37,7 @@ export default function Home() {
               }}
             >
               <source
-                src="https://videos.pexels.com/video-files/2675516/2675516-sd_960_540_24fps.mp4"
+                src="https://www.pexels.com/download/video/5299882/"
                 type="video/mp4"
               />
             </video>
