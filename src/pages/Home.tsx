@@ -30,7 +30,7 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              poster="https://www.pexels.com/download/video/5092427/"
+              poster="https://www.pexels.com/download/video/5299882/"
               className="w-full h-full object-cover"
               onError={(e) => {
                 const target = e.currentTarget;

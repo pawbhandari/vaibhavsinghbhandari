@@ -30,33 +30,14 @@ export default function About() {
               About
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">
-              Photographer & Visual Storyteller
+              Visual Storyteller
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Portrait and Biography - Split Layout */}
-      <section className="py-16 md:py-24 px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Portrait Image */}
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0.8, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted">
-                <img
-                  src="https://ik.imagekit.io/6qlriee6f/final.jpeg"
-                  alt={photographerInfo.name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              
+      
+        
               {/* Social Links */}
               <div className="flex items-center gap-4">
                 {photographerInfo.socialLinks.instagram && (
