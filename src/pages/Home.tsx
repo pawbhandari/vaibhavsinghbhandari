@@ -36,10 +36,7 @@ export default function Home() {
                 target.style.opacity = "0";
               }}
             >
-              <source
-                src="https://www.pexels.com/download/video/5299882/"
-                type="video/mp4"
-              />
+              <source src="https://www.pexels.com/download/video/1536322/" type="video/mp4" />
             </video>
             {/* Video from Pexels */}
             {/* Gradient Overlay for text readability */}
