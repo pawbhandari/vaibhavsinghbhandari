@@ -2,41 +2,34 @@ import type { PhotographerInfo } from "@/types";
 
 export const photographerInfo: PhotographerInfo = {
   name: "Vaibhav Singh Bhandari",
-  tagline: "Energetic Motion Design & Video Editing Professional",
-  heroIntroduction: "Transform Your Vision Into Motion.",
-  biography: `Vaibhav Singh Bhandari is an award-winning video editor and motion designer specializing in dynamic content creation and visual storytelling. With recognition including the International Motion Design Awards 2024 and YouTube Creator Excellence Award 2023, Vaibhav brings cutting-edge editing techniques and creative motion graphics to every project.
+  tagline: "Versatile Video Editor & Shooter for All Company Niches",
+  heroIntroduction: "From High-Energy Edits to Cinematic Calm – Let's Create Yours.",
+  biography: `Vaibhav Singh Bhandari is a dynamic video editor and shooter delivering high-impact content for companies across all niches. With expertise in motion graphics, podcast editing, educational videos, and 3D reels, he transforms ideas into polished visuals using After Effects, Premiere Pro, Illustrator, and Photoshop.
 
-Based in Delhi with expertise in modern editing software and motion design tools, Vaibhav combines technical precision with creative storytelling. His approach transforms raw footage into compelling visual narratives that engage and inspire audiences across all platforms.`,
-  approach: `My photography is guided by three principles: authenticity, composition, and light. I believe the best images emerge when subjects feel comfortable and genuine, when composition guides the viewer's eye naturally, and when light reveals the essence of the moment.
+Securing second place in his video editing course's internal competition for best sound design, Vaibhav brings proven skills in seamless shooting and editing. Featured in short courses by Tharun Speaks (tharunspeaks.in), he handles everything from fast-paced brand reels to serene cinematic projects. Based in Delhi NCR, he's ready to elevate your company's video needs with no constraints on availability.`,
+  approach: `Vaibhav's workflow focuses on three pillars: adaptability, energy control, and precision. He adapts to any company niche, mastering high-energy motion-driven edits or calm cinematic shoots, while ensuring every sound, cut, and graphic enhances the story.
 
-Whether working on editorial assignments or commercial projects, I strive to create images that transcend their immediate purpose and become lasting visual statements.`,
+From podcast polishing to 3D reels and educational content, his process guarantees videos that engage audiences and drive results for brands worldwide.`,
   awards: [
-    "International Photography Awards - Editorial Photographer of the Year 2023",
-    "PDN Photo Annual - Winner 2022",
-    "Hasselblad Masters Finalist 2021",
-    "Communication Arts Photography Annual 2020",
+    "2nd Place - Best Sound Design, Internal Video Editing Course Competition",
+    "Featured in Tharun Speaks Short Courses (tharunspeaks.in)",
   ],
   clients: [
-    "Vogue",
-    "The New York Times",
-    "National Geographic",
-    "Adobe",
-    "Apple",
-    "Nike",
-    "Patagonia",
-    "Architectural Digest",
+    "Open to Companies Across All Niches",
+    "Podcast Producers",
+    "Edtech & Educational Brands",
+    "Motion Graphics Agencies",
   ],
-  education: "MFA Photography, School of Visual Arts, New York",
-  location: "New York, NY",
-  email: "hello@sarahmitchell.com",
-  phone: "+1 (555) 123-4567",
-  availability: "Currently booking for Q2 2025",
+  education: "Video Editing Course Graduate (Advanced Sound Design Specialization)",
+  location: "Delhi NCR Region, India",
+  email: "vaibhavsinghbhandari123@gmail.com",
+  phone: "+91 7820086426",
+  availability: "No constraints – fully available for company hires, freelance, and projects.",
   socialLinks: {
-    instagram: "https://instagram.com/sarahmitchellphoto",
-    linkedin: "https://linkedin.com/in/sarahmitchell",
-    behance: "https://behance.net/sarahmitchell",
+    instagram: "https://instagram.com/",
+    linkedin: "https://linkedin.com/in/",
+    behance: "https://behance.net/",
   },
-  // Photo by Joshua Sun on Unsplash
   portraitImage:
     "https://images.unsplash.com/photo-1585279968680-6606ee6ed134?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDA2OTF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjI3Njk1NjB8&ixlib=rb-4.1.0&q=80&w=1080",
 };
