@@ -50,8 +50,7 @@ export default function About() {
             >
               <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted">
                 <img
-                  // TODO: Replace with your photo URL
-                  src=""
+                  src="https://ik.imagekit.io/6qlriee6f/final.jpeg"
                   alt={photographerInfo.name}
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
