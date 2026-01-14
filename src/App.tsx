@@ -11,6 +11,7 @@ import { PageTransition } from "@/components/ui/PageTransition";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { AnimatePresence } from "framer-motion";
 import { lazy, Suspense } from "react";
+import { useAdobeCursor } from "@/hooks/useAdobeCursor";
 
 // Code-split route components for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -81,21 +82,28 @@ function AnimatedRoutes() {
   );
 }
 
+function AdobeCursorProvider({ children }: { children: React.ReactNode }) {
+  useAdobeCursor();
+  return <>{children}</>;
+}
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <SkipToContent />
-            <Layout>
-              <Suspense fallback={<LoadingFallback />}>
-                <AnimatedRoutes />
-              </Suspense>
-            </Layout>
-          </BrowserRouter>
+          <AdobeCursorProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <SkipToContent />
+              <Layout>
+                <Suspense fallback={<LoadingFallback />}>
+                  <AnimatedRoutes />
+                </Suspense>
+              </Layout>
+            </BrowserRouter>
+          </AdobeCursorProvider>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
