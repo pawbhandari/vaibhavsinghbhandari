@@ -178,43 +178,10 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
-    cursor: url('/premiere-cursor.svg') 16 16, auto;
   }
 
   body {
     @apply bg-background text-foreground;
-    cursor: url('/premiere-cursor.svg') 16 16, auto;
-  }
-
-  /* After Effects cursor for buttons and interactive elements */
-  button,
-  [role="button"],
-  .btn {
-    cursor: url('/aftereffects-cursor.svg') 16 16, pointer !important;
-  }
-
-  /* Photoshop cursor for images */
-  img,
-  [role="img"],
-  picture,
-  .image-container {
-    cursor: url('/photoshop-cursor.svg') 16 16, auto !important;
-  }
-
-  /* Illustrator cursor for links and navigation */
-  a,
-  nav,
-  [role="navigation"],
-  [role="link"] {
-    cursor: url('/illustrator-cursor.svg') 16 16, pointer !important;
-  }
-
-  /* Lightroom cursor for gallery/portfolio items */
-  .gallery-item,
-  .portfolio-item,
-  .lightbox,
-  [data-lightbox] {
-    cursor: url('/lightroom-cursor.svg') 16 16, pointer !important;
   }
 }
 
@@ -226,26 +193,5 @@ All colors MUST be HSL.
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
-  }
-
-  /* Utility classes for explicit cursor control */
-  .cursor-premiere {
-    cursor: url('/premiere-cursor.svg') 16 16, auto !important;
-  }
-
-  .cursor-aftereffects {
-    cursor: url('/aftereffects-cursor.svg') 16 16, pointer !important;
-  }
-
-  .cursor-photoshop {
-    cursor: url('/photoshop-cursor.svg') 16 16, auto !important;
-  }
-
-  .cursor-illustrator {
-    cursor: url('/illustrator-cursor.svg') 16 16, pointer !important;
-  }
-
-  .cursor-lightroom {
-    cursor: url('/lightroom-cursor.svg') 16 16, pointer !important;
   }
 }
