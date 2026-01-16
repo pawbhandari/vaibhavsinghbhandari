@@ -65,13 +65,20 @@ export const projects: Project[] = [
     coverImage: longFormCover,
     description:
       "Landscape cinematic videos, brand films, and long-format storytelling with professional color grading and sound design.",
-    videoUrl: "https://player.vimeo.com/video/YOUR_LONG_FORM_VIDEO_ID", // Landscape format
+    videoUrl: "https://player.vimeo.com/video/1154245228?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
         id: "lf-1",
-        src: "https://player.vimeo.com/video/YOUR_LONG_FORM_VIDEO_ID",
-        alt: "Long Form Video",
+        src: "https://player.vimeo.com/video/1154245228?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "18dec Mayank Agarwal",
         aspectRatio: "landscape",
+      },
+      {
+        id: "lf-2",
+        src: "https://www.youtube.com/embed/3O0RUj1PS98?si=LBj1a9BLZubIdy60",
+        alt: "YouTube Long Form Video",
+        aspectRatio: "landscape",
+        type: "youtube",
       },
     ],
   },
