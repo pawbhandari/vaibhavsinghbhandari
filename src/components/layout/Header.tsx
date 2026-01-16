@@ -97,7 +97,7 @@ export function Header() {
           </nav>
 
           {/* Mobile Menu */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-1">
             <ThemeToggle />
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -105,22 +105,22 @@ export function Header() {
                   variant="ghost"
                   size="icon"
                   className={cn(
-                    'size-9',
+                    'size-10 min-h-[44px] min-w-[44px]',
                     isTransparent && 'text-white hover:bg-white/10'
                   )}
                   aria-label="Open menu"
                 >
-                  <Menu className="size-5" />
+                  <Menu className="size-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-80">
-                <nav className="flex flex-col gap-6 mt-8">
+              <SheetContent side="right" className="w-full sm:w-80 p-0">
+                <nav className="flex flex-col mt-12 px-6">
                   {navLinks.map((link) => (
                     <Link
                       key={link.path}
                       to={link.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-foreground/80"
+                      className="py-4 text-xl font-light tracking-wide text-foreground hover:text-foreground/80 border-b border-border/50 first:border-t"
                     >
                       {link.name}
                     </Link>

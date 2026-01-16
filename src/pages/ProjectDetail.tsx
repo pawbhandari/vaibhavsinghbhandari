@@ -44,9 +44,9 @@ export default function ProjectDetail() {
       />
       
       <div className="min-h-screen">
-        {/* Hero Image - 70vh */}
+        {/* Hero Image - Responsive height */}
       <motion.div
-        className="relative w-full h-[70vh] overflow-hidden bg-muted"
+        className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden bg-muted"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -63,32 +63,32 @@ export default function ProjectDetail() {
       </motion.div>
 
       {/* Project Info Section */}
-      <section className="max-w-4xl mx-auto px-6 lg:px-8 py-12 md:py-16">
+      <section className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
         <motion.div
-          className="space-y-8"
+          className="space-y-6 md:space-y-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {/* Title and Category */}
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide">
+          <div className="space-y-3 md:space-y-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wide">
               {project.title}
             </h1>
-            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground font-light">
-              <div className="flex items-center gap-2">
-                <Calendar className="size-4" />
+            <div className="flex flex-wrap gap-3 md:gap-6 text-xs md:text-sm text-muted-foreground font-light">
+              <div className="flex items-center gap-1.5 md:gap-2">
+                <Calendar className="size-3.5 md:size-4" />
                 <span>{project.year}</span>
               </div>
-              <div className="flex items-center gap-2 capitalize">
+              <div className="flex items-center gap-1.5 md:gap-2 capitalize">
                 <span>•</span>
                 <span>{project.category}</span>
               </div>
               {project.location && (
                 <>
                   <span>•</span>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="size-4" />
+                  <div className="flex items-center gap-1.5 md:gap-2">
+                    <MapPin className="size-3.5 md:size-4" />
                     <span>{project.location}</span>
                   </div>
                 </>
@@ -100,29 +100,29 @@ export default function ProjectDetail() {
 
           {/* Description */}
           <div className="space-y-4">
-            <p className="text-lg md:text-xl font-light leading-relaxed text-foreground">
+            <p className="text-base md:text-lg lg:text-xl font-light leading-relaxed text-foreground">
               {project.description}
             </p>
           </div>
 
           {/* Technical Details */}
-          <div className="grid md:grid-cols-2 gap-6 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pt-2 md:pt-4">
             {project.camera && (
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
-                  <Camera className="size-4" />
+              <div className="space-y-1.5 md:space-y-2">
+                <div className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-light tracking-wide uppercase text-muted-foreground">
+                  <Camera className="size-3.5 md:size-4" />
                   <span>Camera</span>
                 </div>
-                <p className="font-light text-foreground">{project.camera}</p>
+                <p className="text-sm md:text-base font-light text-foreground">{project.camera}</p>
               </div>
             )}
             {project.client && (
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
-                  <User className="size-4" />
+              <div className="space-y-1.5 md:space-y-2">
+                <div className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-light tracking-wide uppercase text-muted-foreground">
+                  <User className="size-3.5 md:size-4" />
                   <span>Client</span>
                 </div>
-                <p className="font-light text-foreground">{project.client}</p>
+                <p className="text-sm md:text-base font-light text-foreground">{project.client}</p>
               </div>
             )}
           </div>
@@ -131,16 +131,16 @@ export default function ProjectDetail() {
 
         {/* Video Gallery */}
         {project.videos && project.videos.length > 0 && (
-          <section className="py-12 md:py-16">
-            <div className="max-w-6xl mx-auto px-6 lg:px-8 space-y-8 md:space-y-12">
+          <section className="py-8 md:py-12 lg:py-16">
+            <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 space-y-6 md:space-y-8 lg:space-y-12">
               {project.videos.map((video, index) => (
                 <ScrollReveal key={video.id} delay={index * 0.1}>
                   <div 
-                    className={`relative w-full overflow-hidden rounded-lg ${
+                    className={`relative w-full overflow-hidden rounded-md md:rounded-lg ${
                       video.aspectRatio === 'portrait' 
-                        ? 'aspect-[9/16] max-w-md mx-auto' 
+                        ? 'aspect-[9/16] max-w-xs md:max-w-sm lg:max-w-md mx-auto' 
                         : video.aspectRatio === 'square'
-                        ? 'aspect-square max-w-2xl mx-auto'
+                        ? 'aspect-square max-w-sm md:max-w-xl lg:max-w-2xl mx-auto'
                         : 'aspect-video'
                     }`}
                   >
