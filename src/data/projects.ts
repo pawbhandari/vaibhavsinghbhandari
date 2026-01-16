@@ -124,13 +124,13 @@ export const projects: Project[] = [
     coverImage: freelanceProjectsCover,
     description:
       "Client work across various niches - commercial videos, tutorials, and promotional content demonstrating versatility.",
-    videoUrl: "https://player.vimeo.com/video/YOUR_FREELANCE_VIDEO_ID", // Replace with your video
+    videoUrl: "https://player.vimeo.com/video/1154244497?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
         id: "fr-1",
-        src: "https://player.vimeo.com/video/YOUR_FREELANCE_VIDEO_ID",
-        alt: "Freelance Project",
-        aspectRatio: "landscape",
+        src: "https://player.vimeo.com/video/1154244497?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "Freelance Video Edit",
+        aspectRatio: "portrait",
       },
     ],
   },
