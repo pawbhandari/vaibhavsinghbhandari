@@ -26,9 +26,8 @@ From podcast polishing to 3D reels and educational content, his process guarante
   phone: "+91 7820086426",
   availability: "No constraints – fully available for company hires, freelance, and projects.",
   socialLinks: {
-    instagram: "https://instagram.com/",
+    instagram: "https://www.instagram.com/vaibhav.jpeg_/",
     linkedin: "https://linkedin.com/in/",
-    behance: "https://behance.net/",
   },
   portraitImage: "https://ik.imagekit.io/6qlriee6f/final.jpeg",
 };
