@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { memo, useMemo } from "react";
 import { photographerInfo } from "@/data/photographer";
 import { getFeaturedProjects } from "@/data/projects";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
@@ -10,10 +10,11 @@ import { Link } from "react-router-dom";
 
 /**
  * Homepage with immersive hero section and featured projects grid
- * Showcases photographer's best work with minimal, elegant design
+ * Showcases photographer's best work - optimized for performance
  */
-export default function Home() {
-  const featuredProjects = getFeaturedProjects();
+function Home() {
+  // Memoize featured projects to prevent recalculation
+  const featuredProjects = useMemo(() => getFeaturedProjects(), []);
 
   return (
     <>
@@ -42,51 +43,26 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 md:from-black/40 md:via-black/20 md:to-black/60" />
           </div>
 
-          {/* Hero Content */}
+          {/* Hero Content - CSS animations for faster initial render */}
           <div className="relative min-h-[100svh] flex flex-col items-center justify-center px-4 md:px-6 py-20">
-            <motion.div
-              className="text-center space-y-4 md:space-y-6 max-w-4xl"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <motion.h1
-                className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-extralight tracking-wider md:tracking-widest text-white"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
+            <div className="text-center space-y-4 md:space-y-6 max-w-4xl animate-in fade-in slide-in-from-bottom-6 duration-700">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-extralight tracking-wider md:tracking-widest text-white animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
                 {photographerInfo.name.toUpperCase()}
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                className="text-lg md:text-xl lg:text-2xl font-light tracking-wide text-white/90"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              >
+              <p className="text-lg md:text-xl lg:text-2xl font-light tracking-wide text-white/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
                 {photographerInfo.tagline}
-              </motion.p>
+              </p>
 
-              <motion.p
-                className="text-sm md:text-base lg:text-lg font-light leading-relaxed text-white/80 max-w-2xl mx-auto px-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-              >
+              <p className="text-sm md:text-base lg:text-lg font-light leading-relaxed text-white/80 max-w-2xl mx-auto px-2 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
                 {photographerInfo.heroIntroduction}
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
 
             {/* Scroll Indicator */}
-            <motion.div
-              className="absolute bottom-8 md:bottom-12"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            >
+            <div className="absolute bottom-8 md:bottom-12 animate-in fade-in duration-700 delay-1000">
               <ScrollIndicator />
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -135,7 +111,7 @@ export default function Home() {
           </div>
 
           {/* View All Link */}
-          <ScrollReveal delay={0.4}>
+          <ScrollReveal delay={0.2}>
             <div className="flex justify-center mt-10 md:mt-16 px-4 md:px-6">
               <Link
                 to="/portfolio"
@@ -151,3 +127,5 @@ export default function Home() {
     </>
   );
 }
+
+export default memo(Home);

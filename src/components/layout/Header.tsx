@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, memo } from 'react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/components/ui/button';
@@ -17,11 +16,11 @@ const navLinks = [
 ];
 
 /**
- * Main header component with scroll-aware styling
+ * Main header component with scroll-aware styling - optimized with CSS animations
  * Transparent on hero section, solid when scrolled
  * Mobile responsive with hamburger menu
  */
-export function Header() {
+export const Header = memo(function Header() {
   const location = useLocation();
   const { isScrolled } = useScrollPosition();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,12 +29,9 @@ export function Header() {
   const isTransparent = location.pathname === '/' && !isScrolled;
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-in slide-in-from-top',
         isTransparent
           ? 'bg-transparent'
           : 'bg-background/90 backdrop-blur-lg border-b border-border shadow-sm'
@@ -47,53 +43,34 @@ export function Header() {
           <Link
             to="/"
             className={cn(
-              'text-lg font-light tracking-widest transition-all duration-300',
+              'text-lg font-light tracking-widest transition-colors duration-200',
               isTransparent
                 ? 'text-white hover:text-white/80'
                 : 'text-foreground hover:text-foreground/80'
             )}
           >
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              {photographerInfo.name.toUpperCase()}
-            </motion.span>
+            {photographerInfo.name.toUpperCase()}
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 * index }}
-                >
-                  <Link
-                    to={link.path}
-                    className="relative text-lg leading-7 font-light tracking-wide text-white transition-colors duration-300 hover:text-white/80"
-                  >
-                    {link.name}
-                    {/* Active underline */}
-                    {location.pathname === link.path && (
-                      <motion.div
-                        layoutId="activeNav"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-white"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                </motion.div>
-              ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-            >
-              <ThemeToggle />
-            </motion.div>
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={cn(
+                  "relative text-lg leading-7 font-light tracking-wide transition-colors duration-200",
+                  isTransparent ? "text-white hover:text-white/80" : "text-foreground hover:text-foreground/80"
+                )}
+              >
+                {link.name}
+                {/* Active underline */}
+                {location.pathname === link.path && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-px bg-current" />
+                )}
+              </Link>
+            ))}
+            <ThemeToggle />
           </nav>
 
           {/* Mobile Menu */}
@@ -131,6 +108,6 @@ export function Header() {
           </div>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
-}
+});
