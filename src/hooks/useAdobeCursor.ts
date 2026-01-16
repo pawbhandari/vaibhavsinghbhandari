@@ -55,8 +55,8 @@ export function useAdobeCursor() {
   }, []);
 
   useEffect(() => {
-    // Apply cursor to document
-    const cursorStyle = `url('${currentCursor.path}') 16 16, auto`;
+    // Apply cursor to document - hotspot at 0,0 for pointer tip
+    const cursorStyle = `url('${currentCursor.path}') 0 0, auto`;
     document.documentElement.style.cursor = cursorStyle;
     document.body.style.cursor = cursorStyle;
 
@@ -72,7 +72,7 @@ export function useAdobeCursor() {
 
     styleEl.textContent = `
       *, *::before, *::after {
-        cursor: url('${currentCursor.path}') 16 16, auto !important;
+        cursor: url('${currentCursor.path}') 0 0, auto !important;
       }
     `;
 
