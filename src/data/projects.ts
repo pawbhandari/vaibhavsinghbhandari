@@ -87,17 +87,17 @@ export const projects: Project[] = [
     videoUrl: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
-        id: "pp-1",
-        src: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Punjabi Ajao Oyeeee",
-        aspectRatio: "portrait",
-      },
-      {
         id: "pp-2",
         src: "https://www.instagram.com/reel/DB4osFUgN02/embed",
         alt: "Instagram Reel 1",
         aspectRatio: "portrait",
         type: "instagram",
+      },
+      {
+        id: "pp-1",
+        src: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "Punjabi Ajao Oyeeee",
+        aspectRatio: "portrait",
       },
       {
         id: "pp-3",
