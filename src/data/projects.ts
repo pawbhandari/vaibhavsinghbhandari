@@ -15,6 +15,46 @@ import freelanceProjectsCover from "@/assets/covers/freelance-projects.png";
 export const projects: Project[] = [
   {
     id: "1",
+    title: "Personal Projects",
+    category: "personal_projects",
+    slug: "personal-projects",
+    coverImage: personalProjectCover,
+    description:
+      "Creative personal experiments showcasing unique editing styles, color grading, and conceptual storytelling.",
+    videoUrl: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+    videos: [
+      {
+        id: "pp-2",
+        src: "https://www.instagram.com/reel/DB4osFUgN02/embed",
+        alt: "Instagram Reel 1",
+        aspectRatio: "portrait",
+        type: "instagram",
+      },
+      {
+        id: "pp-1",
+        src: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "Punjabi Ajao Oyeeee",
+        aspectRatio: "portrait",
+      },
+      {
+        id: "pp-3",
+        src: "https://www.instagram.com/reel/DOrF8XaAaYC/embed",
+        alt: "Instagram Reel 2",
+        aspectRatio: "portrait",
+        type: "instagram",
+      },
+      {
+        id: "pp-4",
+        src: "https://www.instagram.com/reel/DDJZ7xTSfz4/embed",
+        alt: "Instagram Reel 3",
+        aspectRatio: "portrait",
+        type: "instagram",
+      },
+    ],
+  },
+
+  {
+    id: "2",
     title: "Short Form",
     category: "short_form",
     slug: "short-form",
@@ -33,25 +73,6 @@ export const projects: Project[] = [
         id: "sf-2",
         src: "https://player.vimeo.com/video/1154248989?badge=0&autopause=0&player_id=0&app_id=58479",
         alt: "Motion 13",
-        aspectRatio: "portrait",
-      },
-    ],
-  },
-
-  {
-    id: "2",
-    title: "3D Reels",
-    category: "3d_reels",
-    slug: "3d-reels",
-    coverImage: threeDReelsCover,
-    description:
-      "Dynamic 3D motion graphics reels with smooth animations and modern effects. Studio-quality 3D rendering and VFX.",
-    videoUrl: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
-    videos: [
-      {
-        id: "3d-1",
-        src: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Portfolio 1",
         aspectRatio: "portrait",
       },
     ],
@@ -92,40 +113,19 @@ export const projects: Project[] = [
 
   {
     id: "4",
-    title: "Personal Projects",
-    category: "personal_projects",
-    slug: "personal-projects",
-    coverImage: personalProjectCover,
+    title: "3D Reels",
+    category: "3d_reels",
+    slug: "3d-reels",
+    coverImage: threeDReelsCover,
     description:
-      "Creative personal experiments showcasing unique editing styles, color grading, and conceptual storytelling.",
-    videoUrl: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "Dynamic 3D motion graphics reels with smooth animations and modern effects. Studio-quality 3D rendering and VFX.",
+    videoUrl: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
-        id: "pp-2",
-        src: "https://www.instagram.com/reel/DB4osFUgN02/embed",
-        alt: "Instagram Reel 1",
+        id: "3d-1",
+        src: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "Portfolio 1",
         aspectRatio: "portrait",
-        type: "instagram",
-      },
-      {
-        id: "pp-1",
-        src: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Punjabi Ajao Oyeeee",
-        aspectRatio: "portrait",
-      },
-      {
-        id: "pp-3",
-        src: "https://www.instagram.com/reel/DOrF8XaAaYC/embed",
-        alt: "Instagram Reel 2",
-        aspectRatio: "portrait",
-        type: "instagram",
-      },
-      {
-        id: "pp-4",
-        src: "https://www.instagram.com/reel/DDJZ7xTSfz4/embed",
-        alt: "Instagram Reel 3",
-        aspectRatio: "portrait",
-        type: "instagram",
       },
     ],
   },
