@@ -21,7 +21,7 @@ export default function Home() {
 
       <div className="min-h-screen">
         {/* Hero Section - Full viewport with featured image, mobile-optimized height */}
-        <section className="relative min-h-[100svh] w-full overflow-hidden">
+        <section className="relative h-[85svh] md:min-h-[100svh] w-full overflow-hidden">
           {/* Background Video */}
           <div className="absolute inset-0">
             <video
@@ -30,7 +30,7 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
               onError={(e) => {
                 const target = e.currentTarget;
                 target.style.opacity = "0";
@@ -38,9 +38,8 @@ export default function Home() {
             >
               <source src="https://www.pexels.com/download/video/1536322/" type="video/mp4" />
             </video>
-            {/* Video from Pexels */}
             {/* Gradient Overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 md:from-black/40 md:via-black/20 md:to-black/60" />
           </div>
 
           {/* Hero Content */}
