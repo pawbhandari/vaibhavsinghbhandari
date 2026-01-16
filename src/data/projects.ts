@@ -68,6 +68,13 @@ export const projects: Project[] = [
     videoUrl: "https://player.vimeo.com/video/1154245228?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
+        id: "lf-0",
+        src: "https://www.youtube.com/embed/pf7YZCfQgbI?si=6OSI6QugIhyKsSyo",
+        alt: "YouTube Long Form Video",
+        aspectRatio: "landscape",
+        type: "youtube",
+      },
+      {
         id: "lf-1",
         src: "https://player.vimeo.com/video/1154245228?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
         alt: "18dec Mayank Agarwal",
@@ -76,7 +83,7 @@ export const projects: Project[] = [
       {
         id: "lf-2",
         src: "https://www.youtube.com/embed/3O0RUj1PS98?si=LBj1a9BLZubIdy60",
-        alt: "YouTube Long Form Video",
+        alt: "YouTube Long Form Video 2",
         aspectRatio: "landscape",
         type: "youtube",
       },
