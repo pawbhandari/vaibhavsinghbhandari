@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import type { ProjectImage } from '@/types';
-import { cn } from '@/lib/utils';
 
 interface LightboxProps {
   images: ProjectImage[];
@@ -14,11 +13,20 @@ interface LightboxProps {
   onNavigate: (index: number) => void;
 }
 
+// Optimized animation variants
+const imageVariants = {
+  initial: { opacity: 0, scale: 0.95 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.95 }
+};
+
+const imageTransition = { duration: 0.2, ease: 'easeOut' as const };
+
 /**
- * Full-screen lightbox component with keyboard and touch navigation
+ * Full-screen lightbox component - memoized for performance
  * Features: arrow navigation, image counter, ESC to close, swipe gestures
  */
-export function Lightbox({ 
+export const Lightbox = memo(function Lightbox({ 
   images, 
   currentIndex, 
   isOpen, 
@@ -31,7 +39,19 @@ export function Lightbox({
   const currentImage = images[currentIndex];
   const totalImages = images.length;
 
-  // Keyboard navigation
+  const handlePrevious = useCallback(() => {
+    if (currentIndex > 0) {
+      onNavigate(currentIndex - 1);
+    }
+  }, [currentIndex, onNavigate]);
+
+  const handleNext = useCallback(() => {
+    if (currentIndex < totalImages - 1) {
+      onNavigate(currentIndex + 1);
+    }
+  }, [currentIndex, totalImages, onNavigate]);
+
+  // Keyboard navigation - with stable callbacks
   useEffect(() => {
     if (!isOpen) return;
 
@@ -47,7 +67,7 @@ export function Lightbox({
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isOpen, currentIndex]);
+  }, [isOpen, handlePrevious, handleNext, onClose]);
 
   // Touch gesture handlers
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -73,18 +93,6 @@ export function Lightbox({
 
     setTouchStart(0);
     setTouchEnd(0);
-  };
-
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      onNavigate(currentIndex - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentIndex < totalImages - 1) {
-      onNavigate(currentIndex + 1);
-    }
   };
 
   return (
@@ -151,10 +159,11 @@ export function Lightbox({
                 src={currentImage.src}
                 alt={currentImage.alt}
                 className="max-w-full max-h-full object-contain"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
+                variants={imageVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={imageTransition}
                 loading="eager"
               />
             </AnimatePresence>
@@ -178,4 +187,4 @@ export function Lightbox({
       </DialogContent>
     </Dialog>
   );
-}
+});
