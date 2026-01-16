@@ -21,12 +21,12 @@ export const projects: Project[] = [
     coverImage: shortFormCover,
     description:
       "High-energy short-form content for social media - Reels, Shorts, TikTok videos with motion graphics and fast cuts.",
-    videoUrl: "https://www.youtube.com/embed/YOUR_SHORT_FORM_VIDEO_ID", // Replace with your video ID
+    videoUrl: "https://player.vimeo.com/video/1154313456?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
         id: "sf-1",
-        src: "https://player.vimeo.com/video/YOUR_SHORT_FORM_VIMEO_ID",
-        alt: "Short Form Video",
+        src: "https://player.vimeo.com/video/1154313456?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "Hrithik Roshan Raw Video",
         aspectRatio: "portrait",
       },
     ],
