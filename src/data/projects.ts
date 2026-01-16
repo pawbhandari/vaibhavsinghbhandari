@@ -29,6 +29,12 @@ export const projects: Project[] = [
         alt: "Hrithik Roshan Raw Video",
         aspectRatio: "portrait",
       },
+      {
+        id: "sf-2",
+        src: "https://player.vimeo.com/video/1154248989?badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "Motion 13",
+        aspectRatio: "portrait",
+      },
     ],
   },
 
