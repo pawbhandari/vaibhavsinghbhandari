@@ -75,6 +75,13 @@ export const projects: Project[] = [
         alt: "Motion 13",
         aspectRatio: "portrait",
       },
+      {
+        id: "sf-3",
+        src: "https://www.youtube.com/embed/Hc4DqnH5URs",
+        alt: "YouTube Short",
+        aspectRatio: "portrait",
+        type: "youtube",
+      },
     ],
   },
 
