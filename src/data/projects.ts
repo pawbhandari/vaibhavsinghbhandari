@@ -106,6 +106,13 @@ export const projects: Project[] = [
         aspectRatio: "portrait",
         type: "instagram",
       },
+      {
+        id: "pp-4",
+        src: "https://www.instagram.com/reel/DDJZ7xTSfz4/embed",
+        alt: "Instagram Reel 3",
+        aspectRatio: "portrait",
+        type: "instagram",
+      },
     ],
   },
 
