@@ -40,18 +40,12 @@ export const projects: Project[] = [
     coverImage: threeDReelsCover,
     description:
       "Dynamic 3D motion graphics reels with smooth animations and modern effects. Studio-quality 3D rendering and VFX.",
-    videoUrl: "https://player.vimeo.com/video/YOUR_3D_REEL_1_ID", // First 3D Reel
+    videoUrl: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
         id: "3d-1",
-        src: "https://player.vimeo.com/video/YOUR_3D_REEL_1_ID",
-        alt: "3D Reel #1",
-        aspectRatio: "portrait",
-      },
-      {
-        id: "3d-2",
-        src: "https://player.vimeo.com/video/YOUR_3D_REEL_2_ID",
-        alt: "3D Reel #2",
+        src: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "Portfolio 1",
         aspectRatio: "portrait",
       },
     ],
