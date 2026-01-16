@@ -21,7 +21,7 @@ export default function Home() {
 
       <div className="min-h-screen">
         {/* Hero Section - Full viewport with featured image, mobile-optimized height */}
-        <section className="relative h-[85svh] md:min-h-[100svh] w-full overflow-hidden">
+        <section className="relative h-[60svh] md:min-h-[100svh] w-full overflow-hidden">
           {/* Background Video */}
           <div className="absolute inset-0">
             <video
