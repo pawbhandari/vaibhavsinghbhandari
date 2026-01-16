@@ -74,9 +74,9 @@ export default function ProjectDetail() {
             </div>
           </div>
         </motion.nav>
-        {/* Hero Image - Responsive height */}
+        {/* Hero Image - Full width with auto height on mobile for full visibility */}
       <motion.div
-        className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden bg-muted"
+        className="relative w-full overflow-hidden bg-muted"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -84,7 +84,7 @@ export default function ProjectDetail() {
         <img
           src={project.coverImage}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-auto md:h-[60vh] lg:h-[70vh] object-contain md:object-cover"
           loading="eager"
           fetchPriority="high"
         />
