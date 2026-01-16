@@ -116,7 +116,7 @@ export default function Home() {
           {/* Section Header */}
           <ScrollReveal>
             <div className="text-center mb-8 md:mb-16 space-y-2 md:space-y-4 px-4 md:px-6">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide">Featured Projects</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide">Project Categories</h2>
               <p className="text-base md:text-lg text-muted-foreground font-light tracking-wide">A selection of recent work</p>
             </div>
           </ScrollReveal>
