@@ -20,6 +20,7 @@ export interface ProjectVideo {
   src: string;
   alt: string;
   aspectRatio: AspectRatio;
+  type?: 'vimeo' | 'youtube' | 'instagram';
 }
 
 export interface Project {

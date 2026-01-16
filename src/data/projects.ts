@@ -92,6 +92,13 @@ export const projects: Project[] = [
         alt: "Punjabi Ajao Oyeeee",
         aspectRatio: "portrait",
       },
+      {
+        id: "pp-2",
+        src: "https://www.instagram.com/reel/DJF6c8WPs0Q/embed",
+        alt: "Instagram Reel by vaibhav.jpeg_",
+        aspectRatio: "portrait",
+        type: "instagram",
+      },
     ],
   },
 

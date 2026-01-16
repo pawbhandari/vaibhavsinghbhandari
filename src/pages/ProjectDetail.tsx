@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Camera, User } from 'lucide-react';
@@ -144,13 +144,23 @@ export default function ProjectDetail() {
                         : 'aspect-video'
                     }`}
                   >
-                    <iframe
-                      src={video.src}
-                      title={video.alt}
-                      className="absolute inset-0 w-full h-full"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowFullScreen
-                    />
+                    {video.type === 'instagram' ? (
+                      <iframe
+                        src={video.src}
+                        title={video.alt}
+                        className="absolute inset-0 w-full h-full border-0"
+                        allowFullScreen
+                        scrolling="no"
+                      />
+                    ) : (
+                      <iframe
+                        src={video.src}
+                        title={video.alt}
+                        className="absolute inset-0 w-full h-full"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                      />
+                    )}
                   </div>
                 </ScrollReveal>
               ))}
