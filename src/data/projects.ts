@@ -94,8 +94,15 @@ export const projects: Project[] = [
       },
       {
         id: "pp-2",
-        src: "https://www.instagram.com/reel/DJF6c8WPs0Q/embed",
-        alt: "Instagram Reel by vaibhav.jpeg_",
+        src: "https://www.instagram.com/reel/DB4osFUgN02/embed",
+        alt: "Instagram Reel 1",
+        aspectRatio: "portrait",
+        type: "instagram",
+      },
+      {
+        id: "pp-3",
+        src: "https://www.instagram.com/reel/DOrF8XaAaYC/embed",
+        alt: "Instagram Reel 2",
         aspectRatio: "portrait",
         type: "instagram",
       },
