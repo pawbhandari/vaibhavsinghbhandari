@@ -129,31 +129,45 @@ export default function ProjectDetail() {
         </motion.div>
       </section>
 
-        {/* Image Gallery - Edge to edge */}
-        <section className="py-12 md:py-16">
-          <div className="space-y-8 md:space-y-12">
-            {project.images.map((image, index) => (
-              <ScrollReveal key={image.id} delay={index * 0.1}>
-                <ImageWithLightbox
-                  image={image}
-                  onClick={() => openLightbox(index)}
-                  priority={index === 0}
-                  index={0}
-                  className="w-full"
-                />
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
+        {/* Video Gallery */}
+        {project.videos && project.videos.length > 0 && (
+          <section className="py-12 md:py-16">
+            <div className="max-w-6xl mx-auto px-6 lg:px-8 space-y-8 md:space-y-12">
+              {project.videos.map((video, index) => (
+                <ScrollReveal key={video.id} delay={index * 0.1}>
+                  <div 
+                    className={`relative w-full overflow-hidden rounded-lg ${
+                      video.aspectRatio === 'portrait' 
+                        ? 'aspect-[9/16] max-w-md mx-auto' 
+                        : video.aspectRatio === 'square'
+                        ? 'aspect-square max-w-2xl mx-auto'
+                        : 'aspect-video'
+                    }`}
+                  >
+                    <iframe
+                      src={video.src}
+                      title={video.alt}
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* Lightbox */}
-        <Lightbox
-          images={project.images}
-          currentIndex={currentImageIndex}
-          isOpen={lightboxOpen}
-          onClose={closeLightbox}
-          onNavigate={setCurrentImageIndex}
-        />
+        {/* Lightbox - only show if project has images */}
+        {project.images && project.images.length > 0 && (
+          <Lightbox
+            images={project.images}
+            currentIndex={currentImageIndex}
+            isOpen={lightboxOpen}
+            onClose={closeLightbox}
+            onNavigate={setCurrentImageIndex}
+          />
+        )}
       </div>
     </>
   );
