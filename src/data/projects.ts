@@ -129,6 +129,12 @@ export const projects: Project[] = [
     videoUrl: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
     videos: [
       {
+        id: "3d-3",
+        src: "https://player.vimeo.com/video/1163972156?badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "3D Reel 3",
+        aspectRatio: "portrait",
+      },
+      {
         id: "3d-1",
         src: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
         alt: "Portfolio 1",
