@@ -134,6 +134,12 @@ export const projects: Project[] = [
         alt: "Portfolio 1",
         aspectRatio: "portrait",
       },
+      {
+        id: "3d-2",
+        src: "https://player.vimeo.com/video/1162088102?badge=0&autopause=0&player_id=0&app_id=58479",
+        alt: "3D Reel 2",
+        aspectRatio: "portrait",
+      },
     ],
   },
 
