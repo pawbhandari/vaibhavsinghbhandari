@@ -27,7 +27,7 @@ From podcast polishing to 3D reels and educational content, his process guarante
   availability: "No constraints – fully available for company hires, freelance, and projects.",
   socialLinks: {
     instagram: "https://www.instagram.com/vaibhav.jpeg_/",
-    linkedin: "https://linkedin.com/in/",
+    linkedin: "https://www.linkedin.com/in/vaibhav-singh-bhandari-ba0b30219",
   },
   portraitImage: "https://ik.imagekit.io/6qlriee6f/final.jpeg",
 };
