@@ -7,22 +7,29 @@ interface PortfolioGridProps {
 }
 
 /**
- * Professional portfolio grid using CSS Grid - optimized for performance
- * Uses CSS animations instead of framer-motion for smoother scrolling
- * Responsive: 3 columns desktop, 2 tablet, 1 mobile
+ * Professional portfolio grid using CSS columns for Masonry layout
+ * Mixes vertical and horizontal thumbnails seamlessly.
  */
 export const PortfolioGrid = memo(function PortfolioGrid({ projects }: PortfolioGridProps) {
+  // Extract aspect ratio from project data
+  const getAspectRatio = (project: Project): 'portrait' | 'landscape' | 'square' => {
+    if (project.videos && project.videos.length > 0 && project.videos[0].aspectRatio) {
+      return project.videos[0].aspectRatio;
+    }
+    // Default to portrait since most of the user's content is reels/tiktok style
+    return 'portrait';
+  };
   // Memoize the grid items to prevent unnecessary re-renders
   const gridItems = useMemo(() => 
     projects.map((project, index) => (
       <div
         key={project.id}
-        className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both"
+        className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both break-inside-avoid inline-block w-full mb-4 md:mb-6 lg:mb-8"
         style={{ animationDelay: `${Math.min(index * 50, 300)}ms`, animationDuration: '400ms' }}
       >
         <ProjectCard
           project={project}
-          aspectRatio="landscape"
+          aspectRatio={getAspectRatio(project)}
           showCategory={true}
           index={index}
         />
@@ -31,7 +38,7 @@ export const PortfolioGrid = memo(function PortfolioGrid({ projects }: Portfolio
   );
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-4 md:px-0">
+    <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 lg:gap-8 px-4 md:px-0">
       {gridItems}
     </div>
   );

@@ -69,7 +69,7 @@ export function SEOHead({
 
     // Additional SEO tags
     updateMetaTag('author', photographerInfo.name);
-    updateMetaTag('keywords', `photography, ${photographerInfo.name}, professional photographer, ${photographerInfo.tagline}`);
+    updateMetaTag('keywords', `video editing, graphic design, motion graphics, ${photographerInfo.name}, video creator, ${photographerInfo.tagline}`);
   }, [fullTitle, fullDescription, fullUrl, image, type]);
 
   return null;

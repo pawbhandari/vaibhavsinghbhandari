@@ -2,6 +2,7 @@ import type { Project, ProjectVideo } from "@/types";
 
 // ========================================
 // Cover Images - imported from assets
+// We'll use these as fallbacks if needed, but our new design prioritizes video embeds
 // ========================================
 import shortFormCover from "@/assets/covers/short-form.png";
 import threeDReelsCover from "@/assets/covers/3d-reels.png";
@@ -9,170 +10,142 @@ import longFormCover from "@/assets/covers/long-form.png";
 import personalProjectCover from "@/assets/covers/personal-project.png";
 import freelanceProjectsCover from "@/assets/covers/freelance-projects.png";
 
+// Helper function to format Vimeo URLs for embedding cleanly
+const formatVimeoUrl = (id: string) => `https://player.vimeo.com/video/${id}?badge=0&autopause=0&player_id=0&app_id=58479`;
+
+// Helper function to format YouTube URLs for embedding
+const formatYouTubeUrl = (id: string) => `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`;
+
 // ========================================
 // Projects Data
 // ========================================
 export const projects: Project[] = [
   {
-    id: "1",
-    title: "Personal Projects",
-    category: "personal_projects",
-    slug: "personal-projects",
-    coverImage: personalProjectCover,
-    description:
-      "Creative personal experiments showcasing unique editing styles, color grading, and conceptual storytelling.",
-    videoUrl: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-    videos: [
-      {
-        id: "pp-2",
-        src: "https://www.instagram.com/reel/DB4osFUgN02/embed",
-        alt: "Instagram Reel 1",
-        aspectRatio: "portrait",
-        type: "instagram",
-      },
-      {
-        id: "pp-1",
-        src: "https://player.vimeo.com/video/1154249350?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Punjabi Ajao Oyeeee",
-        aspectRatio: "portrait",
-      },
-      {
-        id: "pp-3",
-        src: "https://www.instagram.com/reel/DOrF8XaAaYC/embed",
-        alt: "Instagram Reel 2",
-        aspectRatio: "portrait",
-        type: "instagram",
-      },
-      {
-        id: "pp-4",
-        src: "https://www.instagram.com/reel/DDJZ7xTSfz4/embed",
-        alt: "Instagram Reel 3",
-        aspectRatio: "portrait",
-        type: "instagram",
-      },
-    ],
-  },
-
-  {
     id: "2",
-    title: "Short Form",
-    category: "short_form",
-    slug: "short-form",
-    coverImage: shortFormCover,
-    description:
-      "High-energy short-form content for social media - Reels, Shorts, TikTok videos with motion graphics and fast cuts.",
-    videoUrl: "https://player.vimeo.com/video/1154313456?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+    title: "Documentary Edit",
+    category: "documentary",
+    slug: "documentary-edit",
+    coverImage: longFormCover,
+    description: "Long-form documentary style editing focusing on pacing, emotional narrative, and seamless b-roll integration.",
+    videoUrl: formatVimeoUrl("1204546738"),
     videos: [
       {
-        id: "sf-1",
-        src: "https://player.vimeo.com/video/1154313456?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Hrithik Roshan Raw Video",
-        aspectRatio: "portrait",
-      },
-      {
-        id: "sf-2",
-        src: "https://player.vimeo.com/video/1154248989?badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Motion 13",
-        aspectRatio: "portrait",
-      },
-      {
-        id: "sf-3",
-        src: "https://www.youtube.com/embed/Hc4DqnH5URs",
-        alt: "YouTube Short",
-        aspectRatio: "portrait",
-        type: "youtube",
-      },
+        id: "doc-1",
+        src: formatVimeoUrl("1204546738"),
+        alt: "Documentary Edit",
+        aspectRatio: "landscape",
+        type: "vimeo",
+      }
     ],
   },
-
+  {
+    id: "yt-1",
+    title: "YouTube Feature Edit",
+    category: "documentary",
+    slug: "youtube-feature-edit",
+    coverImage: longFormCover,
+    description: "High-quality YouTube feature edit focused on seamless storytelling and retention.",
+    videoUrl: formatYouTubeUrl("fnmbKE7EjYs"),
+    videos: [
+      {
+        id: "yt-v1",
+        src: formatYouTubeUrl("fnmbKE7EjYs"),
+        alt: "YouTube Feature Edit",
+        aspectRatio: "landscape",
+        type: "youtube",
+      }
+    ],
+  },
+  {
+    id: "1",
+    title: "Subtitle Animation",
+    category: "subtitle",
+    slug: "subtitle-animation",
+    coverImage: shortFormCover,
+    description: "Dynamic and engaging subtitle animations for short-form content. Retaining audience attention through kinetic typography and visual pacing.",
+    videoUrl: formatVimeoUrl("1204546737"),
+    videos: [
+      {
+        id: "sub-1",
+        src: formatVimeoUrl("1204546737"),
+        alt: "Subtitle Animation",
+        aspectRatio: "portrait",
+        type: "vimeo",
+      }
+    ],
+  },
   {
     id: "3",
-    title: "Long Form",
-    category: "long_form",
-    slug: "long-form",
-    coverImage: longFormCover,
-    description:
-      "Landscape cinematic videos, brand films, and long-format storytelling with professional color grading and sound design.",
-    videoUrl: "https://player.vimeo.com/video/1154245228?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+    title: "Podcast Highlights",
+    category: "podcast",
+    slug: "podcast-highlights",
+    coverImage: personalProjectCover,
+    description: "High-energy podcast snippets edited for social media reach. Multi-cam switching, color grading, and motion graphics.",
+    videoUrl: formatVimeoUrl("1154313456"),
     videos: [
       {
-        id: "lf-0",
-        src: "https://www.youtube.com/embed/pf7YZCfQgbI?si=6OSI6QugIhyKsSyo",
-        alt: "YouTube Long Form Video",
-        aspectRatio: "landscape",
-        type: "youtube",
-      },
-      {
-        id: "lf-1",
-        src: "https://player.vimeo.com/video/1154245228?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "18dec Mayank Agarwal",
-        aspectRatio: "landscape",
-      },
-      {
-        id: "lf-2",
-        src: "https://www.youtube.com/embed/3O0RUj1PS98?si=LBj1a9BLZubIdy60",
-        alt: "YouTube Long Form Video 2",
-        aspectRatio: "landscape",
-        type: "youtube",
-      },
+        id: "pod-1",
+        src: formatVimeoUrl("1154313456"),
+        alt: "Podcast Highlights",
+        aspectRatio: "portrait",
+        type: "vimeo",
+      }
     ],
   },
-
   {
     id: "4",
-    title: "3D Reels",
-    category: "3d_reels",
-    slug: "3d-reels",
+    title: "Music Video",
+    category: "music_video",
+    slug: "music-video",
     coverImage: threeDReelsCover,
-    description:
-      "Dynamic 3D motion graphics reels with smooth animations and modern effects. Studio-quality 3D rendering and VFX.",
-    videoUrl: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
+    description: "Creative music video editing with beat-syncing, color grading, and visual effects to match the track's energy.",
+    videoUrl: formatVimeoUrl("1154249350"),
     videos: [
       {
-        id: "3d-3",
-        src: "https://player.vimeo.com/video/1163972156?badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "3D Reel 3",
+        id: "mv-1",
+        src: formatVimeoUrl("1154249350"),
+        alt: "Music Video",
         aspectRatio: "portrait",
-      },
-      {
-        id: "3d-1",
-        src: "https://player.vimeo.com/video/1154314675?badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Portfolio 1",
-        aspectRatio: "portrait",
-      },
-      {
-        id: "3d-2",
-        src: "https://player.vimeo.com/video/1162088102?badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "3D Reel 2",
-        aspectRatio: "portrait",
-      },
+        type: "vimeo",
+      }
     ],
   },
-
   {
     id: "5",
-    title: "Freelance Projects",
-    category: "freelance_projects",
-    slug: "freelance-projects",
+    title: "Ad Video / Commercial",
+    category: "ad_video",
+    slug: "ad-video",
     coverImage: freelanceProjectsCover,
-    description:
-      "Client work across various niches - commercial videos, tutorials, and promotional content demonstrating versatility.",
-    videoUrl: "https://player.vimeo.com/video/1154244497?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+    description: "High-conversion commercial video editing for brands. Clean, professional, and persuasive visual storytelling.",
+    videoUrl: formatVimeoUrl("1154248989"),
     videos: [
       {
-        id: "fr-1",
-        src: "https://player.vimeo.com/video/1154244497?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Freelance Video Edit",
+        id: "ad-1",
+        src: formatVimeoUrl("1154248989"),
+        alt: "Ad Video",
         aspectRatio: "portrait",
-      },
-      {
-        id: "fr-2",
-        src: "https://player.vimeo.com/video/1163972466?badge=0&autopause=0&player_id=0&app_id=58479",
-        alt: "Freelance Project 2",
-        aspectRatio: "portrait",
-      },
+        type: "vimeo",
+      }
     ],
   },
+  {
+    id: "6",
+    title: "Wedding Video",
+    category: "wedding_video",
+    slug: "wedding-video",
+    coverImage: longFormCover,
+    description: "Cinematic and emotional wedding videography edits. Capturing special moments with perfect sound design and color grading.",
+    videoUrl: formatVimeoUrl("1154244497"),
+    videos: [
+      {
+        id: "wed-1",
+        src: formatVimeoUrl("1154244497"),
+        alt: "Wedding Video",
+        aspectRatio: "portrait",
+        type: "vimeo",
+      }
+    ],
+  }
 ];
 
 // ========================================
@@ -202,10 +175,10 @@ export const getAllCategories = (): string[] => {
 };
 
 /**
- * Get featured projects (first 4)
+ * Get featured projects
  */
 export const getFeaturedProjects = (): Project[] => {
-  return projects.slice(0, 4);
+  return projects.slice(0, 4); // Return first 4 for the homepage grid
 };
 
 /**
@@ -226,12 +199,11 @@ export const getAllProjectVideos = (projectId: string): ProjectVideo[] => {
   const project = projects.find((p) => p.id === projectId);
   if (!project) return [];
 
-  // Include main video + additional videos
   const mainVideo: ProjectVideo = {
     id: `${projectId}-main`,
-    src: project.videoUrl,
+    src: project.videoUrl!,
     alt: project.title,
-    aspectRatio: "landscape",
+    aspectRatio: "portrait", // Defaulting to portrait as most are
   };
 
   return [mainVideo, ...(project.videos || [])];

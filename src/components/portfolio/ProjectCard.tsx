@@ -2,6 +2,7 @@ import React, { memo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import type { Project } from '@/types';
 import { cn } from '@/lib/utils';
+import { Play } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -18,8 +19,7 @@ const aspectRatioClasses = {
 } as const;
 
 /**
- * Project card component with image, hover overlay - memoized for performance
- * CSS-only animations instead of framer-motion for better FPS
+ * Project card component with glassmorphism hover overlay
  */
 export const ProjectCard = memo(function ProjectCard({ 
   project, 
@@ -32,49 +32,64 @@ export const ProjectCard = memo(function ProjectCard({
   const handleLoad = useCallback(() => setIsLoaded(true), []);
 
   return (
-    <Link
-      to={`/project/${project.slug}`}
-      className="group block relative overflow-hidden rounded-lg md:rounded-sm transform-gpu"
-    >
-      {/* Image Container */}
-      <div className={cn('relative overflow-hidden bg-muted', aspectRatioClasses[aspectRatio])}>
-        {/* Loading placeholder */}
+    <div className="group block relative overflow-hidden rounded-xl bg-card border border-border/50 shadow-lg transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(139,92,246,0.3)] hover:border-brand-purple/50">
+      {/* Video Container */}
+      <div className={cn('relative overflow-hidden bg-muted rounded-t-xl', aspectRatioClasses[aspectRatio])}>
         {!isLoaded && (
-          <div className="absolute inset-0 bg-muted animate-pulse" />
+          <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
+            <span className="text-muted-foreground text-sm font-medium">Loading Video...</span>
+          </div>
         )}
         
-        <img
-          src={project.coverImage}
-          alt={project.title}
-          className={cn(
-            'absolute inset-0 w-full h-full object-cover transition-transform duration-500 will-change-transform',
-            isLoaded ? 'opacity-100' : 'opacity-0',
-            'md:group-hover:scale-105'
-          )}
-          loading={index < 4 ? 'eager' : 'lazy'}
-          decoding="async"
-          onLoad={handleLoad}
-        />
-        
-        {/* Overlay with gradient and text - CSS transitions only */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent md:from-black/80 md:via-black/20 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 space-y-1 md:space-y-2">
-            <h3 className="text-white text-lg md:text-xl lg:text-2xl font-light tracking-wide line-clamp-2">
-              {project.title}
-            </h3>
-            {showCategory && (
-              <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-white/80 font-light tracking-wide">
-                <span className="capitalize">{project.category}</span>
-                <span>•</span>
-                <span>{project.year}</span>
-              </div>
+        {project.videoUrl ? (
+          <iframe
+            src={project.videoUrl}
+            className={cn(
+              'absolute inset-0 w-full h-full transition-opacity duration-700',
+              isLoaded ? 'opacity-100' : 'opacity-0'
             )}
-          </div>
-        </div>
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            title={project.title}
+            loading={index < 4 ? 'eager' : 'lazy'}
+            onLoad={handleLoad}
+          />
+        ) : (
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            className={cn(
+              'absolute inset-0 w-full h-full object-cover transition-transform duration-700 will-change-transform group-hover:scale-110',
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            )}
+            loading={index < 4 ? 'eager' : 'lazy'}
+            decoding="async"
+            onLoad={handleLoad}
+          />
+        )}
 
-        {/* Subtle hover border effect - desktop only */}
-        <div className="hidden md:block absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300" />
+        {/* Category Badge */}
+        {showCategory && (
+          <div className="absolute top-4 right-4 z-10 pointer-events-none">
+            <span className="px-3 py-1 text-xs font-medium bg-background/80 backdrop-blur-md border border-white/10 text-white rounded-full capitalize shadow-sm">
+              {project.category.replace('_', ' ')}
+            </span>
+          </div>
+        )}
       </div>
-    </Link>
+      
+      {/* Content Area below video */}
+      <Link to={`/project/${project.slug}`} className="block p-5 md:p-6 bg-card relative z-10 cursor-pointer">
+        <h3 className="text-xl md:text-2xl font-bold tracking-wide text-foreground group-hover:text-brand-purple transition-colors line-clamp-1">
+          {project.title}
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+          {project.description}
+        </p>
+        <div className="mt-4 flex items-center text-brand-purple text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300">
+          View Project Details →
+        </div>
+      </Link>
+    </div>
   );
 });
